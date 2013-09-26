@@ -1,0 +1,16 @@
+<h1><%= current_user.email %></h1>
+
+
+<h2>My Tasks</h2>
+<% @tasks.each do |task| %>
+  <div class="cf">
+    <h3><%= task.name %></h3>
+    <ul class="task">
+      <li><%= link_to 'Show', task %></li>
+      <li><%= link_to 'Edit', edit_task_path(task) %></li>
+      <li><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  </div>
+<% end %>
+
+<%= link_to 'New Task', new_task_path %>
